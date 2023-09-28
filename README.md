@@ -42,7 +42,7 @@ El objetivo del texto anterior es proporcionar una descripción detallada y prof
 - qrcode
 
 
-###Notas
+### Notas
 * Este es un proyecto en continuo proceso de creación, por lo tanto algunas partes del código no están completadas y solamente son una muestra de lo que depara el futuro.
 
 ## Construido con 🛠️
