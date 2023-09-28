@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endpoints</title>
+    <style>
+        /* Style for the body */
+        body {
+            background-color: #282828;
+            color: #f0f0f0;
+            font-size: 18px;
+        }
+
+        /* Style for the header */
+        .header {
+            font-size: 36px;
+            font-weight: bold;
+            color: #f9f9f9;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Style for collapsible boxes */
+        .endpoint-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #383838;
+        }
+
+        .endpoint-name {
+            cursor: pointer;
+            font-weight: bold;
+            color: #f9f9f9;
+        }
+
+        .endpoint-details {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Endpoints</div>
+
+    <!-- First Collapsible Box -->
+    <div class="endpoint-box">
+        <div class="endpoint-name">Censor texto</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /api/text/censor</p>
+            <p><strong>Descripción:</strong>Este endpoint obtiene texto, y en función de si es censurable o no devuelve un objecto {"censurar":true} o {"censurar":false}</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/api/text/censor</p>
+            <p><strong>Método:</strong> POST</p>
+            <p><strong>Ejemplo input:</strong> data = {"message":"Pon lo que quieras aquí"}</p>
+            <p><strong>Respuesta ejemplo:</strong> {"censurado":true}</p>
+        </div>
+    </div>
+
+    <!-- Second Collapsible Box -->
+    <div class="endpoint-box">
+        <div class="endpoint-name">Censor imagenes</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /img_det</p>
+            <p><strong>Descripción:</strong>Este endpoint obtiene una imagen, y en función de si es censurable o no devuelve un objecto {"unsafe":true} o {"unsafe":false}</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/img_det</p>
+            <p><strong>Método:</strong> POST</p>
+            <p><strong>Respuesta ejemplo:</strong> {"unsafe":true}</p>
+            <!-- <p><strong>Ejemplo input:</strong> Mandad una imagen</p> -->
+        </div>
+    </div>
+
+    <!-- Add more collapsible boxes as needed -->
+
+    <div class="endpoint-box">
+        <div class="endpoint-name">Almacenaje a largo plazo</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /volcar_coleccion</p>
+            <p><strong>Descripción:</strong> Volcar la colección de preguntas a una colección donde se almacena a largo plazo</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/volcar_coleccion</p>
+            <p><strong>Método:</strong> POST</p>
+            <!-- <p><strong>Ejemplo input:</strong> Example for Endpoint 2</p> -->
+        </div>
+    </div>
+
+
+
+    <div class="endpoint-box">
+        <div class="endpoint-name">Descargar preguntas</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /descargar_preguntas</p>
+            <p><strong>Descripción:</strong>Genera un .docx para descargar con las preguntas almacenadas en la colección questions. En la peticion hay que hacer send and download</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/descargar_preguntas</p>
+            <p><strong>Método:</strong> POST</p>
+            <!-- <p><strong>Ejemplo input:</strong> Example for Endpoint 2</p> -->
+        </div>
+    </div>
+
+    
+    <div class="endpoint-box">
+        <div class="endpoint-name">Borrar Preguntas</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /vaciar_coleccion</p>
+            <p><strong>Descripción:</strong>Vacia la colección de preguntas</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/vaciar_coleccion</p>
+            <p><strong>Método:</strong> POST</p>
+            <!-- <p><strong>Ejemplo input:</strong> Example for Endpoint 2</p> -->
+        </div>
+    </div>
+
+
+    <div class="endpoint-box">
+        <div class="endpoint-name">QR usuario</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /generate_qr_usuario</p>
+            <p><strong>Descripción:</strong>Genera el código qr de un usuario</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/generate_qr_usuario</p>
+            <p><strong>Método:</strong> GET</p>
+            <p><strong>Ejemplo input:</strong>     {
+                "id_usuario": "Quien sabe",
+                "id_evento": "Ninguno"
+            }</p>
+            <p><strong>Respuesta ejemplo:</strong> { "qr_code": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/wAALCAEiASIBAREA/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oACAEBAAA/APf6KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK+AKKKKKKKK9A+CX/JXtC/7eP/SeSvr+ivkD42/8le13/t3/APSeOu//AGZf" }</p>
+        </div>
+    </div>
+
+    <div class="endpoint-box">
+        <div class="endpoint-name">QR usuario evento</div>
+        <div class="endpoint-details">
+            <p><strong>Endpoint:</strong> /generate_qr_usuario_evento</p>
+            <p><strong>Descripción:</strong>Genera el código de usuario de un usuario para un evento</p>
+            <p><strong>Ruta:</strong> https://datapi-9xvl-dev.fl0.io/generate_qr_usuario_evento</p>
+            <p><strong>Método:</strong> GET</p>
+            <p><strong>Ejemplo input:</strong>     {
+                "id_usuario": "Quien sabe",
+                "id_evento": "Ninguno"
+            }</p>
+            <p><strong>Respuesta ejemplo:</strong> { "qr_code": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/wAALCAEiASIBAREA/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oACAEBAAA/APf6KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK+AKKKKKKKK9A+CX/JXtC/7eP/SeSvr+ivkD42/8le13/t3/APSeOu//AGZf" }</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle the visibility of endpoint details
+        const endpointNames = document.querySelectorAll('.endpoint-name');
+
+        endpointNames.forEach(name => {
+            name.addEventListener('click', () => {
+                const details = name.nextElementSibling;
+                details.style.display = details.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
